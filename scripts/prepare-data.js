@@ -141,14 +141,16 @@ function filterToUNMembers(geojson) {
     const filtered = {
         type: 'FeatureCollection',
         features: geojson.features.filter(feature => {
-            const iso3 = feature.properties.ISO_A3 || feature.properties.ADM0_A3;
+            // Use ADM0_A3 as primary (more reliable than ISO_A3 in Natural Earth data)
+            const iso3 = feature.properties.ADM0_A3 || feature.properties.ISO_A3;
             return iso3 && UN_MEMBER_STATES.has(iso3);
         })
     };
 
     // Normalize properties
     filtered.features = filtered.features.map(feature => {
-        const iso3 = feature.properties.ISO_A3 || feature.properties.ADM0_A3;
+        // Use ADM0_A3 as primary, fallback to ISO_A3 (Natural Earth has some -99 values for ISO_A3)
+        const iso3 = feature.properties.ADM0_A3 || feature.properties.ISO_A3;
         return {
             ...feature,
             id: iso3,

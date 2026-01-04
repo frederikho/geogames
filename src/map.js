@@ -25,6 +25,12 @@ export class MapRenderer {
         this.width = container.clientWidth;
         this.height = Math.max(400, Math.min(600, this.width * 0.6));
 
+        console.log('[MAP] Initializing map:', {
+            width: this.width,
+            height: this.height,
+            container: container
+        });
+
         this.svg
             .attr('width', this.width)
             .attr('height', this.height);
@@ -34,6 +40,8 @@ export class MapRenderer {
             .fitSize([this.width, this.height], { type: 'Sphere' });
 
         this.path = d3.geoPath().projection(this.projection);
+
+        console.log('[MAP] Projection and path generator created');
     }
 
     /**
@@ -43,14 +51,57 @@ export class MapRenderer {
      * @param {Set} allNeighbors - Set of all neighbor codes
      */
     render(targetCountryCode, correctNeighbors, allNeighbors) {
+        console.log('[MAP] Render called with:', {
+            targetCountryCode,
+            correctNeighbors: Array.from(correctNeighbors),
+            allNeighbors: Array.from(allNeighbors)
+        });
+
         const worldTopo = getWorldTopo();
         if (!worldTopo) {
-            console.error('World topology data not loaded');
+            console.error('[MAP] World topology data not loaded');
             return;
         }
 
+        console.log('[MAP] WorldTopo loaded:', {
+            type: worldTopo.type,
+            objects: Object.keys(worldTopo.objects),
+            arcs: worldTopo.arcs ? worldTopo.arcs.length : 0
+        });
+
         // Convert TopoJSON to GeoJSON
         const countries = topojson.feature(worldTopo, worldTopo.objects.countries);
+
+        console.log('[MAP] Converted to GeoJSON:', {
+            type: countries.type,
+            featureCount: countries.features.length,
+            firstFeature: countries.features[0]
+        });
+
+        // Filter to only relevant countries (target + neighbors)
+        const relevantCodes = new Set([targetCountryCode, ...Array.from(allNeighbors)]);
+        const relevantCountries = countries.features.filter(d => {
+            const code = d.properties.iso_a3 || d.id;
+            return relevantCodes.has(code);
+        });
+
+        console.log('[MAP] Relevant countries:', {
+            codes: Array.from(relevantCodes),
+            count: relevantCountries.length
+        });
+
+        // Create a feature collection of just relevant countries for bounds calculation
+        const relevantFeatureCollection = {
+            type: 'FeatureCollection',
+            features: relevantCountries
+        };
+
+        // Recalculate projection to fit relevant countries
+        this.projection = d3.geoNaturalEarth1()
+            .fitSize([this.width, this.height], relevantFeatureCollection);
+        this.path = d3.geoPath().projection(this.projection);
+
+        console.log('[MAP] Projection updated to fit relevant countries');
 
         // Clear existing map
         this.svg.selectAll('*').remove();
@@ -59,7 +110,7 @@ export class MapRenderer {
         const g = this.svg.append('g');
 
         // Draw all countries
-        g.selectAll('path')
+        const paths = g.selectAll('path')
             .data(countries.features)
             .enter()
             .append('path')
@@ -81,11 +132,11 @@ export class MapRenderer {
                 const code = d.properties.iso_a3 || d.id;
 
                 if (code === targetCountryCode) {
-                    return 'var(--terracotta-dark)';
+                    return '#A85A4F'; // terracotta-dark
                 } else if (allNeighbors.has(code)) {
-                    return 'var(--sepia-dark)';
+                    return '#6B5845'; // sepia-dark
                 } else {
-                    return 'var(--sepia)';
+                    return '#8B7355'; // sepia
                 }
             })
             .attr('stroke-width', d => {
@@ -96,13 +147,13 @@ export class MapRenderer {
                 const code = d.properties.iso_a3 || d.id;
 
                 if (code === targetCountryCode) {
-                    return 'var(--terracotta)';
+                    return '#C97064'; // terracotta
                 } else if (correctNeighbors.has(code)) {
-                    return 'var(--sage)';
+                    return '#9CAF88'; // sage (user guessed correctly)
                 } else if (allNeighbors.has(code)) {
-                    return 'white';
+                    return '#D4A574'; // ochre (missed/revealed)
                 } else {
-                    return 'var(--parchment)';
+                    return '#EDD9C0'; // parchment
                 }
             })
             .attr('fill-opacity', d => {
@@ -124,6 +175,15 @@ export class MapRenderer {
                 return null;
             });
 
+        console.log('[MAP] Paths created:', {
+            pathCount: paths.size(),
+            samplePath: paths.nodes()[0] ? {
+                d: paths.nodes()[0].getAttribute('d'),
+                fill: paths.nodes()[0].getAttribute('fill'),
+                stroke: paths.nodes()[0].getAttribute('stroke')
+            } : null
+        });
+
         // Add country labels for target and neighbors
         const labelCountries = countries.features.filter(d => {
             const code = d.properties.iso_a3 || d.id;
@@ -140,7 +200,7 @@ export class MapRenderer {
             })
             .attr('text-anchor', 'middle')
             .attr('class', 'map-label')
-            .style('font-family', 'Comic Sans MS, cursive')
+            .style('font-family', 'sans-serif')
             .style('font-size', '11px')
             .style('font-weight', d => {
                 const code = d.properties.iso_a3 || d.id;
@@ -148,7 +208,7 @@ export class MapRenderer {
             })
             .style('fill', d => {
                 const code = d.properties.iso_a3 || d.id;
-                return code === targetCountryCode ? 'white' : 'var(--ink)';
+                return code === targetCountryCode ? 'white' : '#3D3226'; // ink color
             })
             .style('pointer-events', 'none')
             .style('text-shadow', d => {
@@ -158,6 +218,10 @@ export class MapRenderer {
                     : '1px 1px 2px rgba(255,255,255,0.8)';
             })
             .text(d => d.properties.name || d.properties.iso_a3 || d.id);
+
+        console.log('[MAP] Labels created:', {
+            labelCount: labelCountries.length
+        });
 
         // Add zoom behavior (optional enhancement)
         this.addZoomBehavior(g, targetCountryCode, allNeighbors);

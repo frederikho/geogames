@@ -59,8 +59,7 @@
     "AGO",
     "BDI",
     "UGA",
-    "RWA",
-    "SSD"
+    "RWA"
   ],
   "SOM": [
     "KEN",
@@ -70,8 +69,7 @@
     "TZA",
     "SOM",
     "ETH",
-    "UGA",
-    "SSD"
+    "UGA"
   ],
   "SDN": [
     "TCD",
@@ -79,8 +77,7 @@
     "ERI",
     "EGY",
     "LBY",
-    "ETH",
-    "SSD"
+    "ETH"
   ],
   "TCD": [
     "SDN",
@@ -97,6 +94,7 @@
   ],
   "RUS": [
     "KAZ",
+    "NOR",
     "PRK",
     "MNG",
     "BLR",
@@ -111,6 +109,11 @@
     "FIN"
   ],
   "BHS": [],
+  "NOR": [
+    "RUS",
+    "SWE",
+    "FIN"
+  ],
   "TLS": [
     "IDN"
   ],
@@ -143,6 +146,7 @@
     "VEN",
     "GUY",
     "SUR",
+    "FRA",
     "PRY"
   ],
   "BOL": [
@@ -209,7 +213,18 @@
   ],
   "SUR": [
     "BRA",
-    "GUY"
+    "GUY",
+    "FRA"
+  ],
+  "FRA": [
+    "BRA",
+    "SUR",
+    "DEU",
+    "CHE",
+    "LUX",
+    "BEL",
+    "ESP",
+    "ITA"
   ],
   "ECU": [
     "PER",
@@ -337,8 +352,7 @@
     "SDN",
     "TCD",
     "CMR",
-    "COG",
-    "SSD"
+    "COG"
   ],
   "COG": [
     "COD",
@@ -568,6 +582,7 @@
     "GEO"
   ],
   "SWE": [
+    "NOR",
     "FIN"
   ],
   "BLR": [
@@ -641,6 +656,7 @@
     "LVA"
   ],
   "DEU": [
+    "FRA",
     "POL",
     "AUT",
     "CHE",
@@ -686,15 +702,18 @@
     "MNE"
   ],
   "CHE": [
+    "FRA",
     "AUT",
     "DEU",
     "ITA"
   ],
   "LUX": [
+    "FRA",
     "DEU",
     "BEL"
   ],
   "BEL": [
+    "FRA",
     "DEU",
     "LUX",
     "NLD"
@@ -707,6 +726,7 @@
     "ESP"
   ],
   "ESP": [
+    "FRA",
     "PRT"
   ],
   "IRL": [
@@ -733,6 +753,7 @@
     "KGZ"
   ],
   "ITA": [
+    "FRA",
     "AUT",
     "CHE",
     "SVN"
@@ -774,6 +795,7 @@
   ],
   "FIN": [
     "RUS",
+    "NOR",
     "SWE"
   ],
   "SVK": [
@@ -835,8 +857,7 @@
     "KEN",
     "SDN",
     "ERI",
-    "DJI",
-    "SSD"
+    "DJI"
   ],
   "DJI": [
     "ERI",
@@ -846,8 +867,7 @@
     "TZA",
     "COD",
     "KEN",
-    "RWA",
-    "SSD"
+    "RWA"
   ],
   "RWA": [
     "TZA",
@@ -881,13 +901,5 @@
     "BIH",
     "SRB"
   ],
-  "TTO": [],
-  "SSD": [
-    "COD",
-    "KEN",
-    "SDN",
-    "CAF",
-    "ETH",
-    "UGA"
-  ]
+  "TTO": []
 }

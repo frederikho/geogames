@@ -16,11 +16,13 @@ export class GameState {
         this.neighborCountries = []; // Array of country objects
         this.guesses = []; // Array of { code, name, correct }
         this.correctGuesses = new Set(); // Set of correct country codes
-        this.incorrectGuesses = new Set(); // Set of incorrect country codes (for penalties)
+        this.userCorrectGuesses = new Set(); // Set of user's correct guesses (before auto-reveal)
+        this.incorrectGuesses = new Set(); // Set of incorrect country codes
         this.submitted = false;
         this.revealed = false;
         this.score = 0;
-        this.penalties = 0;
+        this.lastRoundGains = 0; // Points gained in last round
+        this.lastRoundLosses = 0; // Points lost in last round
         this.round = 1;
     }
 
@@ -46,9 +48,12 @@ export class GameState {
         // Reset round-specific state
         this.guesses = [];
         this.correctGuesses = new Set();
-        // Keep incorrectGuesses for cumulative penalty tracking
+        this.userCorrectGuesses = new Set();
+        this.incorrectGuesses = new Set(); // Reset for new round
         this.submitted = false;
         this.revealed = false;
+        this.lastRoundGains = 0;
+        this.lastRoundLosses = 0;
     }
 
     /**
@@ -100,33 +105,61 @@ export class GameState {
         }
 
         this.submitted = true;
+        this.revealed = true; // Mark as revealed after submission
 
-        let newCorrect = 0;
-        let newIncorrect = 0;
+        let gains = 0; // Points gained this round
+        let losses = 0; // Points lost this round (incorrect + missed)
 
+        // Process current guesses
         this.guesses.forEach(guess => {
             if (guess.correct) {
                 if (!this.correctGuesses.has(guess.code)) {
                     this.correctGuesses.add(guess.code);
-                    this.score++;
-                    newCorrect++;
+                    this.userCorrectGuesses.add(guess.code);
+                    gains++;
                 }
             } else {
-                // Only penalize new incorrect guesses
+                // Incorrect guess
                 if (!this.incorrectGuesses.has(guess.code)) {
                     this.incorrectGuesses.add(guess.code);
-                    this.penalties++;
-                    newIncorrect++;
+                    losses++;
                 }
             }
         });
 
+        // Auto-reveal missing neighbors and count as losses
+        const countries = getCountries();
+        this.neighbors.forEach(code => {
+            if (!this.guesses.find(g => g.code === code)) {
+                // Missed this neighbor - count as loss
+                losses++;
+
+                // Add to guesses list as correct but revealed (not guessed by user)
+                const country = countries[code];
+                if (country) {
+                    this.guesses.push({
+                        code,
+                        name: country.name,
+                        correct: true,
+                        revealed: true
+                    });
+                }
+                this.correctGuesses.add(code);
+            }
+        });
+
+        // Update score and store round delta
+        this.score += (gains - losses);
+        this.lastRoundGains = gains;
+        this.lastRoundLosses = losses;
+
         return {
             success: true,
-            newCorrect,
-            newIncorrect,
+            gains,
+            losses,
             totalCorrect: this.correctGuesses.size,
-            totalNeighbors: this.neighbors.length
+            totalNeighbors: this.neighbors.length,
+            isComplete: true
         };
     }
 
@@ -172,11 +205,12 @@ export class GameState {
             submitted: this.submitted,
             revealed: this.revealed,
             score: this.score,
-            penalties: this.penalties,
+            lastRoundGains: this.lastRoundGains,
+            lastRoundLosses: this.lastRoundLosses,
             round: this.round,
             canSubmit: this.guesses.length > 0 && !this.revealed,
             progress: {
-                found: this.correctGuesses.size,
+                found: this.userCorrectGuesses.size, // Only count user's actual guesses
                 total: this.neighbors.length
             }
         };

@@ -209,3 +209,44 @@ Special thanks to:
 - Natural Earth for public domain geographic data
 - D3.js community for excellent mapping tools
 - Comic Sans MS for being the most playful font
+
+# Note
+
+ Singapore: ❌ NOT AVAILABLE
+
+  - Reason: Singapore is too small to appear in Natural Earth 110m dataset
+  - Natural Earth 110m is designed for world maps, small countries (<1000 km²) are often excluded
+  - Singapore is only ~730 km²
+
+We have to change that or indicate it to the user. 
+
+# To Dos
+
+Learn International Relations. 
+
+Shareable player stats
+🟩🟩🟥🟩
+Found 3/4
+
+Historical countries?
+
+Gamification:
+Achievements, Badges, e.g. “Perfect Africa run”
+
+Test for mobile
+
+Save stats in cookies?
+Make account to save stats persisently
+
+
+Feedback function. Would require server or Lambda to send me a mail. 
+
+
+Current events
+draws from https://en.wikipedia.org/wiki/Portal:Current_events. LLM processes the news, anonymises them. 
+
+Locate the city (by clicking)
+
+
+
+

@@ -29,12 +29,11 @@ class Game {
                 onAddGuess: (countryName) => this.handleAddGuess(countryName),
                 onRemoveGuess: (countryCode) => this.handleRemoveGuess(countryCode),
                 onSubmit: () => this.handleSubmit(),
-                onReveal: () => this.handleReveal()
+                onNextRound: () => this.nextRound()
             });
 
-            // Initialize map renderer
+            // Initialize map renderer (will be properly sized when first shown)
             this.mapRenderer = new MapRenderer();
-            this.mapRenderer.init();
 
             // Start first round
             this.startNewRound();
@@ -96,49 +95,88 @@ class Game {
 
             // Show map
             this.uiManager.showMap();
+
+            // Initialize map with correct dimensions (now that container is visible)
+            this.mapRenderer.init();
             this.updateMap();
 
-            // Check if round is complete
-            if (result.totalCorrect === result.totalNeighbors) {
-                console.log('Round complete! All neighbors found.');
-                setTimeout(() => {
-                    if (confirm('Congratulations! All neighbors found. Start next round?')) {
-                        this.nextRound();
-                    }
-                }, 1000);
-            }
+            // Next Round button is now visible, no modal needed
         } else {
-            alert(result.error);
+            alert(result.error); // Simple error alert for edge cases
         }
     }
 
-    handleReveal() {
-        const result = this.gameState.reveal();
-        console.log('Revealed remaining neighbors:', result);
+    showNextRoundModal(result) {
+        const { newCorrect, newIncorrect, missed } = result;
 
-        // Update UI
-        this.uiManager.renderChips();
-        this.uiManager.updateScores();
-        this.uiManager.updateButtons();
+        let message = '';
+        if (newCorrect > 0) {
+            message += `✅ Correct: ${newCorrect}\n`;
+        }
+        if (newIncorrect > 0) {
+            message += `❌ Wrong guesses: ${newIncorrect}\n`;
+        }
+        if (missed > 0) {
+            message += `⚠️ Missed neighbors: ${missed}\n`;
+        }
 
-        // Show/update map
-        this.uiManager.showMap();
-        this.updateMap();
+        this.showModal(
+            'Round Complete!',
+            message || 'Round finished.',
+            'Next Round',
+            () => this.nextRound()
+        );
+    }
 
-        // Offer to continue
-        setTimeout(() => {
-            if (confirm('Round revealed. Start next round?')) {
-                this.nextRound();
+    showErrorModal(message) {
+        this.showModal('Error', message, 'OK', () => {});
+    }
+
+    showModal(title, content, buttonText, onConfirm) {
+        // Create modal overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+
+        modal.innerHTML = `
+            <h3 class="modal-title">${title}</h3>
+            <div class="modal-content">${content.replace(/\n/g, '<br>')}</div>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-primary">${buttonText}</button>
+            </div>
+        `;
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Handle button click
+        const button = modal.querySelector('.modal-btn-primary');
+        button.addEventListener('click', () => {
+            document.body.removeChild(overlay);
+            onConfirm();
+        });
+
+        // Handle overlay click (close)
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                document.body.removeChild(overlay);
             }
-        }, 1500);
+        });
+
+        // Focus the button
+        setTimeout(() => button.focus(), 100);
     }
 
     updateMap() {
         const state = this.gameState.getState();
 
+        // Only include neighbors the user actually guessed (not auto-revealed)
         const correctNeighbors = new Set(
             state.guesses
-                .filter(g => g.correct)
+                .filter(g => g.correct && !g.revealed)
                 .map(g => g.code)
         );
 

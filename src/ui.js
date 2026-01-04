@@ -19,15 +19,16 @@ export class UIManager {
             chipsContainer: document.getElementById('chips-container'),
             dropdown: document.getElementById('autocomplete-dropdown'),
             submitBtn: document.getElementById('submit-btn'),
-            revealBtn: document.getElementById('reveal-btn'),
+            nextRoundBtn: document.getElementById('next-round-btn'),
             mapContainer: document.getElementById('map-container'),
             mapLegend: document.getElementById('map-legend'),
             targetCountry: document.getElementById('target-country'),
             neighborCount: document.getElementById('neighbor-count'),
             foundCount: document.getElementById('found-count'),
             totalCount: document.getElementById('total-count'),
+            progressIndicator: document.getElementById('progress-indicator'),
             score: document.getElementById('score'),
-            penalties: document.getElementById('penalties'),
+            scoreDelta: document.getElementById('score-delta'),
             roundNumber: document.getElementById('round-number')
         };
 
@@ -56,9 +57,9 @@ export class UIManager {
             }
         });
 
-        this.elements.revealBtn.addEventListener('click', () => {
-            if (this.callbacks.onReveal) {
-                this.callbacks.onReveal();
+        this.elements.nextRoundBtn.addEventListener('click', () => {
+            if (this.callbacks.onNextRound) {
+                this.callbacks.onNextRound();
             }
         });
 
@@ -228,7 +229,11 @@ export class UIManager {
             // Add state classes
             if (this.gameState.submitted || this.gameState.revealed) {
                 if (guess.correct) {
-                    chip.classList.add('correct');
+                    if (guess.revealed) {
+                        chip.classList.add('revealed'); // Missed/auto-revealed
+                    } else {
+                        chip.classList.add('correct'); // User guessed correctly
+                    }
                 } else {
                     chip.classList.add('incorrect');
                 }
@@ -264,8 +269,16 @@ export class UIManager {
     updateButtons() {
         const state = this.gameState.getState();
         this.elements.submitBtn.disabled = !state.canSubmit;
-        this.elements.revealBtn.disabled = state.revealed;
         this.elements.input.disabled = state.revealed;
+
+        // Show Next Round button after submission, hide Submit button
+        if (state.submitted) {
+            this.elements.submitBtn.classList.add('hidden');
+            this.elements.nextRoundBtn.classList.remove('hidden');
+        } else {
+            this.elements.submitBtn.classList.remove('hidden');
+            this.elements.nextRoundBtn.classList.add('hidden');
+        }
     }
 
     /**
@@ -275,8 +288,26 @@ export class UIManager {
         const state = this.gameState.getState();
         this.elements.foundCount.textContent = state.progress.found;
         this.elements.score.textContent = state.score;
-        this.elements.penalties.textContent = state.penalties;
         this.elements.roundNumber.textContent = state.round;
+
+        // Update score delta if we have gains or losses
+        if (state.submitted && (state.lastRoundGains > 0 || state.lastRoundLosses > 0)) {
+            let deltaHtml = '';
+            if (state.lastRoundGains > 0) {
+                deltaHtml += `<span class="positive">+${state.lastRoundGains}</span>`;
+            }
+            if (state.lastRoundLosses > 0) {
+                deltaHtml += `<span class="negative">-${state.lastRoundLosses}</span>`;
+            }
+            this.elements.scoreDelta.innerHTML = deltaHtml;
+        } else {
+            this.elements.scoreDelta.innerHTML = '';
+        }
+
+        // Show progress indicator after first submission
+        if (state.submitted) {
+            this.elements.progressIndicator.classList.add('visible');
+        }
     }
 
     /**
@@ -333,6 +364,7 @@ export class UIManager {
         this.elements.input.value = '';
         this.hideDropdown();
         this.hideMap();
+        this.elements.progressIndicator.classList.remove('visible'); // Hide progress for new round
         this.renderChips();
         this.updateQuestion();
         this.updateScores();

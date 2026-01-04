@@ -19,11 +19,10 @@
                 </div>
                 <div class="score-box">
                     <span class="score-label">Score</span>
-                    <div class="score-value" id="score">0</div>
-                </div>
-                <div class="score-box">
-                    <span class="score-label">Penalties</span>
-                    <div class="score-value" id="penalties">0</div>
+                    <div class="score-value">
+                        <span id="score">0</span>
+                        <span id="score-delta" class="score-delta"></span>
+                    </div>
                 </div>
             </div>
         </header>
@@ -42,7 +41,7 @@
                 <div class="meta-item">
                     This country has <span class="meta-highlight" id="neighbor-count">0</span> land neighbors
                 </div>
-                <div class="meta-item">
+                <div class="meta-item progress-indicator" id="progress-indicator">
                     Found: <span class="meta-highlight" id="found-count">0</span> of <span class="meta-highlight" id="total-count">0</span>
                 </div>
             </div>
@@ -77,8 +76,8 @@
             <button id="submit-btn" class="btn btn-primary">
                 Submit Answers
             </button>
-            <button id="reveal-btn" class="btn btn-secondary">
-                Reveal Remaining
+            <button id="next-round-btn" class="btn btn-secondary hidden">
+                Next Round
             </button>
         </div>
 
@@ -94,11 +93,11 @@
             </div>
             <div class="legend-item">
                 <div class="legend-color correct"></div>
-                <span>Correct Neighbors</span>
+                <span>You Guessed</span>
             </div>
             <div class="legend-item">
-                <div class="legend-color missing"></div>
-                <span>Missing Neighbors</span>
+                <div class="legend-color revealed"></div>
+                <span>You Missed</span>
             </div>
         </div>
 

@@ -112,6 +112,11 @@
     "name": "Bahamas",
     "aliases": []
   },
+  "NOR": {
+    "code": "NOR",
+    "name": "Norway",
+    "aliases": []
+  },
   "TLS": {
     "code": "TLS",
     "name": "Timor-Leste",
@@ -211,6 +216,11 @@
   "SUR": {
     "code": "SUR",
     "name": "Suriname",
+    "aliases": []
+  },
+  "FRA": {
+    "code": "FRA",
+    "name": "France",
     "aliases": []
   },
   "ECU": {
@@ -877,11 +887,6 @@
   "TTO": {
     "code": "TTO",
     "name": "Trinidad and Tobago",
-    "aliases": []
-  },
-  "SSD": {
-    "code": "SSD",
-    "name": "S. Sudan",
     "aliases": []
   }
 }

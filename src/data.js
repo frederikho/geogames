@@ -11,11 +11,23 @@ let worldTopoData = null;
  */
 export async function loadGameData() {
     try {
+        console.log('[DATA] Loading game data...');
+
         const [countries, neighbors, worldTopo] = await Promise.all([
             fetch('/data/countries.json').then(r => r.json()),
             fetch('/data/neighbors.json').then(r => r.json()),
             fetch('/data/world.topo.json').then(r => r.json())
         ]);
+
+        console.log('[DATA] Loaded:', {
+            countries: Object.keys(countries).length,
+            neighbors: Object.keys(neighbors).length,
+            worldTopo: {
+                type: worldTopo.type,
+                objects: Object.keys(worldTopo.objects),
+                arcs: worldTopo.arcs ? worldTopo.arcs.length : 0
+            }
+        });
 
         countriesData = countries;
         neighborsData = neighbors;
@@ -23,7 +35,7 @@ export async function loadGameData() {
 
         return { countries, neighbors, worldTopo };
     } catch (error) {
-        console.error('Error loading game data:', error);
+        console.error('[DATA] Error loading game data:', error);
         throw new Error('Failed to load game data. Please ensure data files are generated.');
     }
 }
