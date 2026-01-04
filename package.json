@@ -1,0 +1,25 @@
+{
+  "name": "neighbor-countries",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare-data": "node scripts/prepare-data.js"
+  },
+  "keywords": ["geography", "game", "education"],
+  "author": "",
+  "license": "MIT",
+  "description": "A browser-based geography game for learning country neighbors",
+  "devDependencies": {
+    "@turf/turf": "^7.3.1",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3",
+    "vite": "^7.3.0"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "topojson-client": "^3.1.0"
+  }
+}

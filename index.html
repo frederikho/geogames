@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn geography by guessing land-border neighbors of countries">
+    <title>Neighbor Countries - Geography Game</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header>
+            <h1>Neighbor Countries</h1>
+            <div class="score-container">
+                <div class="score-box">
+                    <span class="score-label">Round</span>
+                    <div class="score-value" id="round-number">1</div>
+                </div>
+                <div class="score-box">
+                    <span class="score-label">Score</span>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <span class="score-label">Penalties</span>
+                    <div class="score-value" id="penalties">0</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading country data...</p>
+        </div>
+
+        <!-- Question Card -->
+        <div id="question-card" class="question-card hidden">
+            <p class="question-prompt">Name the land-border neighbors of</p>
+            <h2 class="country-name" id="target-country"></h2>
+            <div class="question-meta">
+                <div class="meta-item">
+                    This country has <span class="meta-highlight" id="neighbor-count">0</span> land neighbors
+                </div>
+                <div class="meta-item">
+                    Found: <span class="meta-highlight" id="found-count">0</span> of <span class="meta-highlight" id="total-count">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div id="input-section" class="input-section hidden">
+            <div class="chips-container" id="chips-container" aria-live="polite">
+                <!-- Chips will be added here dynamically -->
+            </div>
+
+            <div class="input-wrapper">
+                <label for="country-input" class="sr-only">Enter country name</label>
+                <input
+                    type="text"
+                    id="country-input"
+                    class="country-input"
+                    placeholder="Type a country name..."
+                    autocomplete="off"
+                    aria-autocomplete="list"
+                    aria-controls="autocomplete-dropdown"
+                    aria-expanded="false"
+                />
+                <div id="autocomplete-dropdown" class="autocomplete-dropdown hidden" role="listbox">
+                    <!-- Dropdown items will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div id="actions" class="actions hidden">
+            <button id="submit-btn" class="btn btn-primary">
+                Submit Answers
+            </button>
+            <button id="reveal-btn" class="btn btn-secondary">
+                Reveal Remaining
+            </button>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map-container" class="map-container hidden">
+            <svg id="map-svg"></svg>
+        </div>
+
+        <div id="map-legend" class="map-legend hidden">
+            <div class="legend-item">
+                <div class="legend-color target"></div>
+                <span>Target Country</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color correct"></div>
+                <span>Correct Neighbors</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color missing"></div>
+                <span>Missing Neighbors</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Geographic data from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></p>
+            <p style="margin-top: 0.5rem; opacity: 0.7;">A playful geography learning game</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

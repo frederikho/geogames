@@ -1,0 +1,887 @@
+{
+  "FJI": {
+    "code": "FJI",
+    "name": "Fiji",
+    "aliases": []
+  },
+  "TZA": {
+    "code": "TZA",
+    "name": "Tanzania",
+    "aliases": [
+      "Tanzania",
+      "United Republic of Tanzania"
+    ]
+  },
+  "CAN": {
+    "code": "CAN",
+    "name": "Canada",
+    "aliases": []
+  },
+  "USA": {
+    "code": "USA",
+    "name": "United States of America",
+    "aliases": [
+      "United States",
+      "United States of America",
+      "America",
+      "US",
+      "U.S.A.",
+      "U.S."
+    ]
+  },
+  "KAZ": {
+    "code": "KAZ",
+    "name": "Kazakhstan",
+    "aliases": []
+  },
+  "UZB": {
+    "code": "UZB",
+    "name": "Uzbekistan",
+    "aliases": []
+  },
+  "PNG": {
+    "code": "PNG",
+    "name": "Papua New Guinea",
+    "aliases": []
+  },
+  "IDN": {
+    "code": "IDN",
+    "name": "Indonesia",
+    "aliases": []
+  },
+  "ARG": {
+    "code": "ARG",
+    "name": "Argentina",
+    "aliases": []
+  },
+  "CHL": {
+    "code": "CHL",
+    "name": "Chile",
+    "aliases": []
+  },
+  "COD": {
+    "code": "COD",
+    "name": "Dem. Rep. Congo",
+    "aliases": [
+      "Democratic Republic of the Congo",
+      "DRC",
+      "DR Congo",
+      "Congo-Kinshasa"
+    ]
+  },
+  "SOM": {
+    "code": "SOM",
+    "name": "Somalia",
+    "aliases": []
+  },
+  "KEN": {
+    "code": "KEN",
+    "name": "Kenya",
+    "aliases": []
+  },
+  "SDN": {
+    "code": "SDN",
+    "name": "Sudan",
+    "aliases": []
+  },
+  "TCD": {
+    "code": "TCD",
+    "name": "Chad",
+    "aliases": []
+  },
+  "HTI": {
+    "code": "HTI",
+    "name": "Haiti",
+    "aliases": []
+  },
+  "DOM": {
+    "code": "DOM",
+    "name": "Dominican Rep.",
+    "aliases": []
+  },
+  "RUS": {
+    "code": "RUS",
+    "name": "Russia",
+    "aliases": [
+      "Russia",
+      "Russian Federation"
+    ]
+  },
+  "BHS": {
+    "code": "BHS",
+    "name": "Bahamas",
+    "aliases": []
+  },
+  "TLS": {
+    "code": "TLS",
+    "name": "Timor-Leste",
+    "aliases": []
+  },
+  "ZAF": {
+    "code": "ZAF",
+    "name": "South Africa",
+    "aliases": []
+  },
+  "LSO": {
+    "code": "LSO",
+    "name": "Lesotho",
+    "aliases": []
+  },
+  "MEX": {
+    "code": "MEX",
+    "name": "Mexico",
+    "aliases": []
+  },
+  "URY": {
+    "code": "URY",
+    "name": "Uruguay",
+    "aliases": []
+  },
+  "BRA": {
+    "code": "BRA",
+    "name": "Brazil",
+    "aliases": []
+  },
+  "BOL": {
+    "code": "BOL",
+    "name": "Bolivia",
+    "aliases": [
+      "Bolivia",
+      "Plurinational State of Bolivia"
+    ]
+  },
+  "PER": {
+    "code": "PER",
+    "name": "Peru",
+    "aliases": []
+  },
+  "COL": {
+    "code": "COL",
+    "name": "Colombia",
+    "aliases": []
+  },
+  "PAN": {
+    "code": "PAN",
+    "name": "Panama",
+    "aliases": []
+  },
+  "CRI": {
+    "code": "CRI",
+    "name": "Costa Rica",
+    "aliases": []
+  },
+  "NIC": {
+    "code": "NIC",
+    "name": "Nicaragua",
+    "aliases": []
+  },
+  "HND": {
+    "code": "HND",
+    "name": "Honduras",
+    "aliases": []
+  },
+  "SLV": {
+    "code": "SLV",
+    "name": "El Salvador",
+    "aliases": []
+  },
+  "GTM": {
+    "code": "GTM",
+    "name": "Guatemala",
+    "aliases": []
+  },
+  "BLZ": {
+    "code": "BLZ",
+    "name": "Belize",
+    "aliases": []
+  },
+  "VEN": {
+    "code": "VEN",
+    "name": "Venezuela",
+    "aliases": [
+      "Venezuela",
+      "Bolivarian Republic of Venezuela"
+    ]
+  },
+  "GUY": {
+    "code": "GUY",
+    "name": "Guyana",
+    "aliases": []
+  },
+  "SUR": {
+    "code": "SUR",
+    "name": "Suriname",
+    "aliases": []
+  },
+  "ECU": {
+    "code": "ECU",
+    "name": "Ecuador",
+    "aliases": []
+  },
+  "JAM": {
+    "code": "JAM",
+    "name": "Jamaica",
+    "aliases": []
+  },
+  "CUB": {
+    "code": "CUB",
+    "name": "Cuba",
+    "aliases": []
+  },
+  "ZWE": {
+    "code": "ZWE",
+    "name": "Zimbabwe",
+    "aliases": []
+  },
+  "BWA": {
+    "code": "BWA",
+    "name": "Botswana",
+    "aliases": []
+  },
+  "NAM": {
+    "code": "NAM",
+    "name": "Namibia",
+    "aliases": []
+  },
+  "SEN": {
+    "code": "SEN",
+    "name": "Senegal",
+    "aliases": []
+  },
+  "MLI": {
+    "code": "MLI",
+    "name": "Mali",
+    "aliases": []
+  },
+  "MRT": {
+    "code": "MRT",
+    "name": "Mauritania",
+    "aliases": []
+  },
+  "BEN": {
+    "code": "BEN",
+    "name": "Benin",
+    "aliases": []
+  },
+  "NER": {
+    "code": "NER",
+    "name": "Niger",
+    "aliases": []
+  },
+  "NGA": {
+    "code": "NGA",
+    "name": "Nigeria",
+    "aliases": []
+  },
+  "CMR": {
+    "code": "CMR",
+    "name": "Cameroon",
+    "aliases": []
+  },
+  "TGO": {
+    "code": "TGO",
+    "name": "Togo",
+    "aliases": []
+  },
+  "GHA": {
+    "code": "GHA",
+    "name": "Ghana",
+    "aliases": []
+  },
+  "CIV": {
+    "code": "CIV",
+    "name": "Côte d'Ivoire",
+    "aliases": [
+      "Ivory Coast",
+      "Côte d'Ivoire"
+    ]
+  },
+  "GIN": {
+    "code": "GIN",
+    "name": "Guinea",
+    "aliases": []
+  },
+  "GNB": {
+    "code": "GNB",
+    "name": "Guinea-Bissau",
+    "aliases": []
+  },
+  "LBR": {
+    "code": "LBR",
+    "name": "Liberia",
+    "aliases": []
+  },
+  "SLE": {
+    "code": "SLE",
+    "name": "Sierra Leone",
+    "aliases": []
+  },
+  "BFA": {
+    "code": "BFA",
+    "name": "Burkina Faso",
+    "aliases": []
+  },
+  "CAF": {
+    "code": "CAF",
+    "name": "Central African Rep.",
+    "aliases": []
+  },
+  "COG": {
+    "code": "COG",
+    "name": "Congo",
+    "aliases": [
+      "Republic of the Congo",
+      "Congo",
+      "Congo-Brazzaville"
+    ]
+  },
+  "GAB": {
+    "code": "GAB",
+    "name": "Gabon",
+    "aliases": []
+  },
+  "GNQ": {
+    "code": "GNQ",
+    "name": "Eq. Guinea",
+    "aliases": []
+  },
+  "ZMB": {
+    "code": "ZMB",
+    "name": "Zambia",
+    "aliases": []
+  },
+  "MWI": {
+    "code": "MWI",
+    "name": "Malawi",
+    "aliases": []
+  },
+  "MOZ": {
+    "code": "MOZ",
+    "name": "Mozambique",
+    "aliases": []
+  },
+  "SWZ": {
+    "code": "SWZ",
+    "name": "eSwatini",
+    "aliases": []
+  },
+  "AGO": {
+    "code": "AGO",
+    "name": "Angola",
+    "aliases": []
+  },
+  "BDI": {
+    "code": "BDI",
+    "name": "Burundi",
+    "aliases": []
+  },
+  "ISR": {
+    "code": "ISR",
+    "name": "Israel",
+    "aliases": []
+  },
+  "LBN": {
+    "code": "LBN",
+    "name": "Lebanon",
+    "aliases": []
+  },
+  "MDG": {
+    "code": "MDG",
+    "name": "Madagascar",
+    "aliases": []
+  },
+  "GMB": {
+    "code": "GMB",
+    "name": "Gambia",
+    "aliases": []
+  },
+  "TUN": {
+    "code": "TUN",
+    "name": "Tunisia",
+    "aliases": []
+  },
+  "DZA": {
+    "code": "DZA",
+    "name": "Algeria",
+    "aliases": []
+  },
+  "JOR": {
+    "code": "JOR",
+    "name": "Jordan",
+    "aliases": []
+  },
+  "ARE": {
+    "code": "ARE",
+    "name": "United Arab Emirates",
+    "aliases": []
+  },
+  "QAT": {
+    "code": "QAT",
+    "name": "Qatar",
+    "aliases": []
+  },
+  "KWT": {
+    "code": "KWT",
+    "name": "Kuwait",
+    "aliases": []
+  },
+  "IRQ": {
+    "code": "IRQ",
+    "name": "Iraq",
+    "aliases": []
+  },
+  "OMN": {
+    "code": "OMN",
+    "name": "Oman",
+    "aliases": []
+  },
+  "VUT": {
+    "code": "VUT",
+    "name": "Vanuatu",
+    "aliases": []
+  },
+  "KHM": {
+    "code": "KHM",
+    "name": "Cambodia",
+    "aliases": []
+  },
+  "THA": {
+    "code": "THA",
+    "name": "Thailand",
+    "aliases": []
+  },
+  "LAO": {
+    "code": "LAO",
+    "name": "Laos",
+    "aliases": [
+      "Laos",
+      "Lao People's Democratic Republic"
+    ]
+  },
+  "MMR": {
+    "code": "MMR",
+    "name": "Myanmar",
+    "aliases": []
+  },
+  "VNM": {
+    "code": "VNM",
+    "name": "Vietnam",
+    "aliases": [
+      "Vietnam",
+      "Viet Nam"
+    ]
+  },
+  "PRK": {
+    "code": "PRK",
+    "name": "North Korea",
+    "aliases": [
+      "North Korea",
+      "Democratic People's Republic of Korea",
+      "DPRK"
+    ]
+  },
+  "KOR": {
+    "code": "KOR",
+    "name": "South Korea",
+    "aliases": [
+      "South Korea",
+      "Republic of Korea",
+      "ROK"
+    ]
+  },
+  "MNG": {
+    "code": "MNG",
+    "name": "Mongolia",
+    "aliases": []
+  },
+  "IND": {
+    "code": "IND",
+    "name": "India",
+    "aliases": []
+  },
+  "BGD": {
+    "code": "BGD",
+    "name": "Bangladesh",
+    "aliases": []
+  },
+  "BTN": {
+    "code": "BTN",
+    "name": "Bhutan",
+    "aliases": []
+  },
+  "NPL": {
+    "code": "NPL",
+    "name": "Nepal",
+    "aliases": []
+  },
+  "PAK": {
+    "code": "PAK",
+    "name": "Pakistan",
+    "aliases": []
+  },
+  "AFG": {
+    "code": "AFG",
+    "name": "Afghanistan",
+    "aliases": []
+  },
+  "TJK": {
+    "code": "TJK",
+    "name": "Tajikistan",
+    "aliases": []
+  },
+  "KGZ": {
+    "code": "KGZ",
+    "name": "Kyrgyzstan",
+    "aliases": []
+  },
+  "TKM": {
+    "code": "TKM",
+    "name": "Turkmenistan",
+    "aliases": []
+  },
+  "IRN": {
+    "code": "IRN",
+    "name": "Iran",
+    "aliases": [
+      "Iran",
+      "Islamic Republic of Iran"
+    ]
+  },
+  "SYR": {
+    "code": "SYR",
+    "name": "Syria",
+    "aliases": [
+      "Syria",
+      "Syrian Arab Republic"
+    ]
+  },
+  "ARM": {
+    "code": "ARM",
+    "name": "Armenia",
+    "aliases": []
+  },
+  "SWE": {
+    "code": "SWE",
+    "name": "Sweden",
+    "aliases": []
+  },
+  "BLR": {
+    "code": "BLR",
+    "name": "Belarus",
+    "aliases": []
+  },
+  "UKR": {
+    "code": "UKR",
+    "name": "Ukraine",
+    "aliases": []
+  },
+  "POL": {
+    "code": "POL",
+    "name": "Poland",
+    "aliases": []
+  },
+  "AUT": {
+    "code": "AUT",
+    "name": "Austria",
+    "aliases": []
+  },
+  "HUN": {
+    "code": "HUN",
+    "name": "Hungary",
+    "aliases": []
+  },
+  "MDA": {
+    "code": "MDA",
+    "name": "Moldova",
+    "aliases": [
+      "Moldova",
+      "Republic of Moldova"
+    ]
+  },
+  "ROU": {
+    "code": "ROU",
+    "name": "Romania",
+    "aliases": []
+  },
+  "LTU": {
+    "code": "LTU",
+    "name": "Lithuania",
+    "aliases": []
+  },
+  "LVA": {
+    "code": "LVA",
+    "name": "Latvia",
+    "aliases": []
+  },
+  "EST": {
+    "code": "EST",
+    "name": "Estonia",
+    "aliases": []
+  },
+  "DEU": {
+    "code": "DEU",
+    "name": "Germany",
+    "aliases": []
+  },
+  "BGR": {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "aliases": []
+  },
+  "GRC": {
+    "code": "GRC",
+    "name": "Greece",
+    "aliases": []
+  },
+  "TUR": {
+    "code": "TUR",
+    "name": "Turkey",
+    "aliases": []
+  },
+  "ALB": {
+    "code": "ALB",
+    "name": "Albania",
+    "aliases": []
+  },
+  "HRV": {
+    "code": "HRV",
+    "name": "Croatia",
+    "aliases": []
+  },
+  "CHE": {
+    "code": "CHE",
+    "name": "Switzerland",
+    "aliases": []
+  },
+  "LUX": {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "aliases": []
+  },
+  "BEL": {
+    "code": "BEL",
+    "name": "Belgium",
+    "aliases": []
+  },
+  "NLD": {
+    "code": "NLD",
+    "name": "Netherlands",
+    "aliases": []
+  },
+  "PRT": {
+    "code": "PRT",
+    "name": "Portugal",
+    "aliases": []
+  },
+  "ESP": {
+    "code": "ESP",
+    "name": "Spain",
+    "aliases": []
+  },
+  "IRL": {
+    "code": "IRL",
+    "name": "Ireland",
+    "aliases": []
+  },
+  "SLB": {
+    "code": "SLB",
+    "name": "Solomon Is.",
+    "aliases": []
+  },
+  "NZL": {
+    "code": "NZL",
+    "name": "New Zealand",
+    "aliases": []
+  },
+  "AUS": {
+    "code": "AUS",
+    "name": "Australia",
+    "aliases": []
+  },
+  "LKA": {
+    "code": "LKA",
+    "name": "Sri Lanka",
+    "aliases": []
+  },
+  "CHN": {
+    "code": "CHN",
+    "name": "China",
+    "aliases": [
+      "China",
+      "People's Republic of China",
+      "PRC"
+    ]
+  },
+  "ITA": {
+    "code": "ITA",
+    "name": "Italy",
+    "aliases": []
+  },
+  "DNK": {
+    "code": "DNK",
+    "name": "Denmark",
+    "aliases": []
+  },
+  "GBR": {
+    "code": "GBR",
+    "name": "United Kingdom",
+    "aliases": [
+      "United Kingdom",
+      "UK",
+      "Britain",
+      "Great Britain"
+    ]
+  },
+  "ISL": {
+    "code": "ISL",
+    "name": "Iceland",
+    "aliases": []
+  },
+  "AZE": {
+    "code": "AZE",
+    "name": "Azerbaijan",
+    "aliases": []
+  },
+  "GEO": {
+    "code": "GEO",
+    "name": "Georgia",
+    "aliases": []
+  },
+  "PHL": {
+    "code": "PHL",
+    "name": "Philippines",
+    "aliases": []
+  },
+  "MYS": {
+    "code": "MYS",
+    "name": "Malaysia",
+    "aliases": []
+  },
+  "BRN": {
+    "code": "BRN",
+    "name": "Brunei",
+    "aliases": [
+      "Brunei",
+      "Brunei Darussalam"
+    ]
+  },
+  "SVN": {
+    "code": "SVN",
+    "name": "Slovenia",
+    "aliases": []
+  },
+  "FIN": {
+    "code": "FIN",
+    "name": "Finland",
+    "aliases": []
+  },
+  "SVK": {
+    "code": "SVK",
+    "name": "Slovakia",
+    "aliases": []
+  },
+  "CZE": {
+    "code": "CZE",
+    "name": "Czechia",
+    "aliases": []
+  },
+  "ERI": {
+    "code": "ERI",
+    "name": "Eritrea",
+    "aliases": []
+  },
+  "JPN": {
+    "code": "JPN",
+    "name": "Japan",
+    "aliases": []
+  },
+  "PRY": {
+    "code": "PRY",
+    "name": "Paraguay",
+    "aliases": []
+  },
+  "YEM": {
+    "code": "YEM",
+    "name": "Yemen",
+    "aliases": []
+  },
+  "SAU": {
+    "code": "SAU",
+    "name": "Saudi Arabia",
+    "aliases": []
+  },
+  "CYP": {
+    "code": "CYP",
+    "name": "Cyprus",
+    "aliases": []
+  },
+  "MAR": {
+    "code": "MAR",
+    "name": "Morocco",
+    "aliases": []
+  },
+  "EGY": {
+    "code": "EGY",
+    "name": "Egypt",
+    "aliases": []
+  },
+  "LBY": {
+    "code": "LBY",
+    "name": "Libya",
+    "aliases": []
+  },
+  "ETH": {
+    "code": "ETH",
+    "name": "Ethiopia",
+    "aliases": []
+  },
+  "DJI": {
+    "code": "DJI",
+    "name": "Djibouti",
+    "aliases": []
+  },
+  "UGA": {
+    "code": "UGA",
+    "name": "Uganda",
+    "aliases": []
+  },
+  "RWA": {
+    "code": "RWA",
+    "name": "Rwanda",
+    "aliases": []
+  },
+  "BIH": {
+    "code": "BIH",
+    "name": "Bosnia and Herz.",
+    "aliases": []
+  },
+  "MKD": {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "aliases": [
+      "North Macedonia",
+      "Macedonia",
+      "FYROM"
+    ]
+  },
+  "SRB": {
+    "code": "SRB",
+    "name": "Serbia",
+    "aliases": []
+  },
+  "MNE": {
+    "code": "MNE",
+    "name": "Montenegro",
+    "aliases": []
+  },
+  "TTO": {
+    "code": "TTO",
+    "name": "Trinidad and Tobago",
+    "aliases": []
+  },
+  "SSD": {
+    "code": "SSD",
+    "name": "S. Sudan",
+    "aliases": []
+  }
+}
