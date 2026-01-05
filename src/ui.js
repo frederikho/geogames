@@ -3,6 +3,7 @@
  */
 
 import { searchCountries, getCountries } from './data.js';
+import { getAllRegions } from './regions.js';
 
 export class UIManager {
     constructor(gameState, callbacks = {}) {
@@ -381,5 +382,118 @@ export class UIManager {
         this.renderChips();
         this.updateButtons();
         this.elements.input.focus();
+    }
+}
+
+/**
+ * Settings modal manager
+ */
+export class SettingsManager {
+    constructor(gameState, callbacks = {}) {
+        this.gameState = gameState;
+        this.callbacks = callbacks;
+
+        // DOM elements
+        this.elements = {
+            settingsBtn: document.getElementById('settings-btn'),
+            settingsModal: document.getElementById('settings-modal'),
+            closeBtn: document.getElementById('close-settings-btn'),
+            regionOptions: document.getElementById('region-options')
+        };
+
+        this.bindEvents();
+        this.renderRegionOptions();
+    }
+
+    /**
+     * Bind event handlers
+     */
+    bindEvents() {
+        // Open settings
+        this.elements.settingsBtn.addEventListener('click', () => {
+            this.show();
+        });
+
+        // Close settings
+        this.elements.closeBtn.addEventListener('click', () => {
+            this.hide();
+        });
+
+        // Close on overlay click
+        this.elements.settingsModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.settingsModal) {
+                this.hide();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.elements.settingsModal.classList.contains('hidden')) {
+                this.hide();
+            }
+        });
+    }
+
+    /**
+     * Render region selection options
+     */
+    renderRegionOptions() {
+        const regions = getAllRegions();
+        const currentRegion = this.gameState.getRegion();
+
+        this.elements.regionOptions.innerHTML = '';
+
+        regions.forEach(region => {
+            const option = document.createElement('label');
+            option.className = 'region-option';
+
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'region';
+            radio.value = region.id;
+            radio.checked = region.id === currentRegion;
+
+            radio.addEventListener('change', () => {
+                if (this.callbacks.onRegionChange) {
+                    this.callbacks.onRegionChange(region.id);
+                    this.hide();
+                }
+            });
+
+            const content = document.createElement('div');
+            content.className = 'region-option-content';
+
+            const name = document.createElement('div');
+            name.className = 'region-name';
+            name.textContent = region.name;
+
+            const description = document.createElement('div');
+            description.className = 'region-description';
+            description.textContent = region.description;
+
+            content.appendChild(name);
+            content.appendChild(description);
+
+            option.appendChild(radio);
+            option.appendChild(content);
+
+            this.elements.regionOptions.appendChild(option);
+        });
+    }
+
+    /**
+     * Show settings modal
+     */
+    show() {
+        this.elements.settingsModal.classList.remove('hidden');
+        // Refresh the selected option
+        this.renderRegionOptions();
+    }
+
+    /**
+     * Hide settings modal
+     */
+    hide() {
+        this.elements.settingsModal.classList.add('hidden');
     }
 }

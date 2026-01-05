@@ -792,3 +792,167 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Icon Button */
+        .btn-icon {
+            background: var(--parchment);
+            border: 2px solid var(--ochre);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--sepia);
+            font-size: 1.5rem;
+            line-height: 1;
+            padding: 0;
+        }
+
+        .btn-icon:hover {
+            background: var(--ochre);
+            color: var(--ink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+        }
+
+        .btn-icon:active {
+            transform: translateY(0);
+        }
+
+        .btn-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Settings Modal */
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header .modal-title {
+            margin-bottom: 0;
+        }
+
+        .modal-header .btn-icon {
+            width: 32px;
+            height: 32px;
+            font-size: 1.8rem;
+        }
+
+        .settings-content {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .settings-section {
+            margin-bottom: 2rem;
+        }
+
+        .settings-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .settings-section h4 {
+            font-size: 1.1rem;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .settings-description {
+            font-size: 0.9rem;
+            color: var(--sepia);
+            margin-bottom: 1rem;
+        }
+
+        .settings-info {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            line-height: 1.6;
+        }
+
+        .settings-info strong {
+            color: var(--ink);
+            font-weight: bold;
+        }
+
+        .settings-info a {
+            color: var(--terracotta);
+            text-decoration: none;
+            border-bottom: 1px solid var(--terracotta);
+        }
+
+        .settings-info a:hover {
+            color: var(--rust);
+            border-bottom-color: var(--rust);
+        }
+
+        /* Region Options */
+        .region-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .region-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid var(--ochre);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .region-option:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--terracotta);
+            transform: translateX(4px);
+        }
+
+        .region-option input[type="radio"] {
+            margin-top: 0.2rem;
+            cursor: pointer;
+            accent-color: var(--terracotta);
+        }
+
+        .region-option-content {
+            flex: 1;
+        }
+
+        .region-name {
+            font-weight: bold;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .region-description {
+            font-size: 0.85rem;
+            color: var(--sepia);
+        }
+
+        .region-option:has(input:checked) {
+            background: linear-gradient(135deg, rgba(156, 175, 136, 0.15) 0%, rgba(212, 165, 116, 0.15) 100%);
+            border-color: var(--sage-dark);
+        }
+
+        .region-option:has(input:checked) .region-name {
+            color: var(--terracotta);
+        }

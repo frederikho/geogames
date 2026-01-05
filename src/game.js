@@ -2,7 +2,7 @@
  * Game state management
  */
 
-import { getNeighbors, getCountries, getRandomCountryWithNeighbors, findCountryByName } from './data.js';
+import { getNeighbors, getCountries, getRandomCountryWithNeighbors, findCountryByName, setCurrentRegion, getCurrentRegion } from './data.js';
 
 export class GameState {
     constructor() {
@@ -243,5 +243,21 @@ export class GameState {
     nextRound() {
         this.round++;
         this.startNewRound();
+    }
+
+    /**
+     * Change region and restart game
+     */
+    changeRegion(regionId) {
+        setCurrentRegion(regionId);
+        this.reset();
+        this.startNewRound();
+    }
+
+    /**
+     * Get current region
+     */
+    getRegion() {
+        return getCurrentRegion();
     }
 }

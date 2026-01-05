@@ -222,6 +222,10 @@ We have to change that or indicate it to the user.
 
 # To Dos
 
+Host it online 
+https://playgeography.io/
+
+
 Learn International Relations. 
 
 Shareable player stats

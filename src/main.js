@@ -4,7 +4,7 @@
 
 import { loadGameData } from './data.js';
 import { GameState } from './game.js';
-import { UIManager } from './ui.js';
+import { UIManager, SettingsManager } from './ui.js';
 import { MapRenderer } from './map.js';
 
 class Game {
@@ -12,6 +12,7 @@ class Game {
         this.gameState = null;
         this.uiManager = null;
         this.mapRenderer = null;
+        this.settingsManager = null;
     }
 
     async init() {
@@ -30,6 +31,11 @@ class Game {
                 onRemoveGuess: (countryCode) => this.handleRemoveGuess(countryCode),
                 onSubmit: () => this.handleSubmit(),
                 onNextRound: () => this.nextRound()
+            });
+
+            // Initialize settings manager
+            this.settingsManager = new SettingsManager(this.gameState, {
+                onRegionChange: (regionId) => this.handleRegionChange(regionId)
             });
 
             // Initialize map renderer (will be properly sized when first shown)
@@ -195,6 +201,13 @@ class Game {
         this.gameState.nextRound();
         this.uiManager.resetForNewRound();
         console.log('Next round:', this.gameState.targetCountry.name);
+    }
+
+    handleRegionChange(regionId) {
+        console.log('Region changed to:', regionId);
+        this.gameState.changeRegion(regionId);
+        this.uiManager.resetForNewRound();
+        console.log('New round with region:', regionId, '- Country:', this.gameState.targetCountry.name);
     }
 
     showError(message) {

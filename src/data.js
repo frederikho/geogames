@@ -2,9 +2,12 @@
  * Data loading and management
  */
 
+import { filterCountriesByRegion, isCountryInRegion } from './regions.js';
+
 let countriesData = null;
 let neighborsData = null;
 let worldTopoData = null;
+let currentRegion = 'ALL'; // Default region
 
 /**
  * Load all game data
@@ -89,13 +92,37 @@ export function findCountryByName(name, countries = countriesData) {
 }
 
 /**
+ * Set current region filter
+ */
+export function setCurrentRegion(regionId) {
+    currentRegion = regionId;
+    console.log('[DATA] Region changed to:', regionId);
+}
+
+/**
+ * Get current region filter
+ */
+export function getCurrentRegion() {
+    return currentRegion;
+}
+
+/**
  * Get all countries that have at least one land neighbor
+ * Filtered by current region
  */
 export function getCountriesWithNeighbors() {
     if (!neighborsData || !countriesData) return [];
 
     return Object.entries(neighborsData)
-        .filter(([code, neighbors]) => neighbors.length > 0)
+        .filter(([code, neighbors]) => {
+            // Must have neighbors
+            if (neighbors.length === 0) return false;
+
+            // Must be in current region
+            if (!isCountryInRegion(code, currentRegion)) return false;
+
+            return true;
+        })
         .map(([code]) => countriesData[code])
         .filter(Boolean);
 }
