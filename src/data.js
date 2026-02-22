@@ -17,9 +17,9 @@ export async function loadGameData() {
         console.log('[DATA] Loading game data...');
 
         const [countries, neighbors, worldTopo] = await Promise.all([
-            fetch('/data/countries.json').then(r => r.json()),
-            fetch('/data/neighbors.json').then(r => r.json()),
-            fetch('/data/world.topo.json').then(r => r.json())
+            fetch('data/countries.json').then(r => r.json()),
+            fetch('data/neighbors.json').then(r => r.json()),
+            fetch('data/world.topo.json').then(r => r.json())
         ]);
 
         console.log('[DATA] Loaded:', {
