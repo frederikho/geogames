@@ -220,37 +220,39 @@ Special thanks to:
 
 We have to change that or indicate it to the user. 
 
-# To Dos
 
-Host it online 
+## Next Improvements (To-Do List)
+- [ ] Add **Skip** option
+- [ ] Check error: when the answer contains 2 or more countries, sometimes the first selection is automatically delated after selecting the second one
+- [ ] Somalia
+- [ ] Not ask again same 
+- [ ] China does not look good. Need a test mode for all countries. Russia too
+- [ ] Found shows wrong ones also
+- [ ] Max answers should be number of neighbors
+- [ ] Czechia
+- [ ] N korea
+- [ ] Some kinds of stats would be great. Where you ser what you didnt know
+- [ ] Public stats: should contain country of origin
+- [ ] Restart button/settings
+- [ ] Maybe multi lang support for country names
+- [ ] South Sudan
+- [ ] Reddit: there are only 164 countries with land borders. You should know them! Embarass yourself. (i did). And another hint: by knowing one connection you know another one. Eg. does Finland have a northern coast? Or Norway and Russia have a border?
+- [ ] Host it online 
 https://playgeography.io/
-
-
-Learn International Relations. 
-
-Shareable player stats
+- [ ] Learn International Relations. 
+- [ ] Shareable player stats
 🟩🟩🟥🟩
 Found 3/4
-
-Historical countries?
-
-Gamification:
+- Historical countries?
+- Gamification:
 Achievements, Badges, e.g. “Perfect Africa run”
-
-Test for mobile
-
-Save stats in cookies?
-Make account to save stats persisently
-
-
-Feedback function. Would require server or Lambda to send me a mail. 
-
-
-Current events
+- [ ] Test for mobile
+- [ ] Save stats in cookies?
+- [ ] Make account to save stats persisently
+- [ ] Feedback function. Would require server or Lambda to send me a mail. 
+- [ ] Current events
 draws from https://en.wikipedia.org/wiki/Portal:Current_events. LLM processes the news, anonymises them. 
-
-Locate the city (by clicking)
-
+- [ ] Locate the city (by clicking)
 
 
 
