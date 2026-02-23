@@ -253,6 +253,6 @@ Locate the city (by clicking)
 
 Add "Skip" option
 
-
+Check error: when the answer contains 2 or more countries, sometimes the first selection is automatically delated after selecting the second one
 
 
