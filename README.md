@@ -251,6 +251,8 @@ draws from https://en.wikipedia.org/wiki/Portal:Current_events. LLM processes th
 
 Locate the city (by clicking)
 
+Add "Skip" option
+
 
 
 
